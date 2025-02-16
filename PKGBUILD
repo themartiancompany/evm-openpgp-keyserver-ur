@@ -99,8 +99,6 @@ fi
 checkdepends=(
   "shellcheck"
 )
-source=()
-sha256sums=()
 _url="${url}"
 _tag="${_commit}"
 _tag_name="commit"
@@ -154,6 +152,8 @@ validpgpkeys=(
   # Truocolo <truocolo@aol.com>
   '97E989E6CF1D2C7F7A41FF9F95684DBE23D6A3E9'
   'DD6732B02E6C88E9E27E2E0D5FC6652B9D9A6C01'
+  # Truocolo <truocolo@0x6E5163fC4BFc1511Dbe06bB605cc14a3e462332b>
+  'F690CBC17BD1F53557290AF51FC17D540D0ADEED'
   # Pellegrino Prevete (dvorak) <dvorak@0x87003Bd6C074C713783df04f36517451fF34CBEf>
   '12D8E3D7888F741E89F86EE0FEC8567A644F1D16'
 )
