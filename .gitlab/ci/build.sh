@@ -164,8 +164,27 @@ _requirements() {
     "reallymakepkg"
   _gur_mini \
     "${ns}" \
+    "reallymakepkg" \
+    "1.2.4-1"
+  _gur_mini \
+    "${ns}" \
     "fur" \
     "1.0.0.0.0.0.0.0.0.0.0.0.0.1.1.1.1-2"
+  _fur_opts+=(
+    -t
+      "ci"
+    -m
+      "gitlab"
+    -n
+      "${ns}"
+  )
+  for _depend in $(recipe-get \
+                     "/home/user/${_pkgname}/PKGBUILD" \
+                     "makedepends"); do
+    fur \
+      "${_fur_opts[@]}" \
+      "${_depend}"
+  done
   # ohoh
   recipe-get \
     -v \
