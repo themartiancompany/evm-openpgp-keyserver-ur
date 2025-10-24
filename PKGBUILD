@@ -65,6 +65,7 @@ fi
 if [[ ! -v "_contracts" ]]; then
   _contracts="true"
 fi
+_py="python"
 _solc="true"
 _hardhat="true"
 _proj="hip"
@@ -119,16 +120,27 @@ _evm_openpgp_keyserver_docs_optdepends=(
     "EVM OpenPGP Key Server documentation"
     "and manuals."
 )
-optdepends=(
-  "${_evm_openpgp_keyserver_docs_optdepends}"
+_evm_openpgp_keyserver_contracts_ref_optdepends=(
+   "${_pkg}:"
+     "reference EVM OpenPGP Key Server implementation."
 )
-[[ "${_os}" == 'Android' ]] && \
-  optdepends+=(
-  )
+_evm_openpgp_keyserver_docs_ref_optdepends+=(
+ "${_pkg}:"
+   "the package this documentation"
+   "package pertains to."
+)
+optdepends=(
+  "${_evm_openpgp_keyserver_docs_optdepends[*]}"
+)
 makedepends=(
   'make'
   'solidity-compiler'
 )
+if [[ "${_contracts}" == "true" ]]; then
+  makedepends+=(
+    "${_py}-docutils"
+  )
+fi
 if [[ "${_contracts}" == "true" ]]; then
   makedepends+=(
     'evm-make'
@@ -242,12 +254,8 @@ package_evm-openpgp-keyserver-contracts() {
   local \
     _make_opts=()
   depends=()
-  _evm_openpgp_keyserver_optdepends=(
-   "${_pkg}:"
-     "reference EVM OpenPGP Key Server implementation."
-  )
   optdepends=(
-    "${_evm_openpgp_keyserver_optdepends[*]}"
+    "${_evm_openpgp_keyserver_contracts_ref_optdepends[*]}"
   )
   _make_opts=(
     DESTDIR="${pkgdir}"
@@ -302,16 +310,10 @@ package_evm-openpgp-keyserver() {
 
 package_evm-openpgp-keyserver-docs() {
   local \
-    _make_opts=() \
-    _evm_openpgp_keyserver_optdepends=()
+    _make_opts=()
   depends=()
-  _evm_openpgp_keyserver_optdepends+=(
-   "${_pkg}:"
-     "the package this documentation"
-     "package pertains to."
-  )
   optdepends=(
-    "${_evm_openpgp_keyserver_optdepends[*]}"
+    "${_evm_openpgp_keyserver_docs_ref_optdepends[*]}"
   )
   _make_opts=(
     DESTDIR="${pkgdir}"
