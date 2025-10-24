@@ -109,11 +109,18 @@ depends=(
   "gpg-key-info"
   "libcrash-bash"
 )
-[[ "${_os}" != "GNU/Linux" ]] && \
-[[ "${_os}" == "Android" ]] && \
+if [[ "${_os}" != "GNU/Linux" ]] && \
+   [[ "${_os}" == "Android" ]]; then
   depends+=(
   )
+fi
+_evm_openpgp_keyserver_docs_optdepends=(
+  "${_pkg}-docs:"
+    "EVM OpenPGP Key Server documentation"
+    "and manuals."
+)
 optdepends=(
+  "${_evm_openpgp_keyserver_docs_optdepends}"
 )
 [[ "${_os}" == 'Android' ]] && \
   optdepends+=(
