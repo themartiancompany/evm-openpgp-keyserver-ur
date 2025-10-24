@@ -20,10 +20,13 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-# Maintainer: Truocolo <truocolo@aol.com>
-# Maintainer: Truocolo <truocolo@0x6E5163fC4BFc1511Dbe06bB605cc14a3e462332b>
-# Maintainer: Pellegrino Prevete (dvorak) <pellegrinoprevete@gmail.com>
-# Maintainer: Pellegrino Prevete (dvorak) <dvorak@0x87003Bd6C074C713783df04f36517451fF34CBEf>
+# Maintainers:
+#   Truocolo
+#     <truocolo@aol.com>
+#     <truocolo@0x6E5163fC4BFc1511Dbe06bB605cc14a3e462332b>
+#   Pellegrino Prevete (dvorak)
+#     <pellegrinoprevete@gmail.com>
+#     <dvorak@0x87003Bd6C074C713783df04f36517451fF34CBEf>
 
 _os="$( \
   uname \
@@ -50,15 +53,38 @@ if [[ ! -v "_archive_format" ]]; then
     _archive_format="tar.gz"
   fi
 fi
-_offline="false"
-_git="false"
+if [[ ! -v "_offline" ]]; then
+  _offline="false"
+fi
+if [[ ! -v "_git" ]]; then
+  _git="false"
+fi
+if [[ ! -v "_docs" ]]; then
+  _docs="true"
+fi
+if [[ ! -v "_contracts" ]]; then
+  _contracts="true"
+fi
 _solc="true"
 _hardhat="true"
 _proj="hip"
 _pkg=evm-openpgp-keyserver
-pkgname="${_pkg}"
+pkgbase="${_pkg}"
+pkgname+=(
+  "${_pkg}"
+)
+if [[ "${_contracts}" == "true" ]]; then
+  pkgname+=(
+    "${_pkg}-contracts"
+  )
+fi
+if [[ "${_docs}" == "true" ]]; then
+  pkgname+=(
+    "${_pkg}-docs"
+  )
+fi
 pkgver="0.0.0.0.0.0.0.0.0.0.0.1.1.1.1"
-_commit="a17a0bd09c86095090606f1ae55dd86326303642"
+_commit="841194018e38b023b6bbb8aa22622b4ba4c43e9e"
 pkgrel=1
 _pkgdesc=(
   "Ethereum Virtual Machine OpenPGP Key Server."
@@ -96,15 +122,20 @@ makedepends=(
   'make'
   'solidity-compiler'
 )
-if [[ "${_solc}" == "true" ]]; then
+if [[ "${_contracts}" == "true" ]]; then
   makedepends+=(
-    "solidity=0.8.28"
+    'evm-make'
   )
-fi
-if [[ "${_hardhat}" == "true" ]]; then
-  makedepends+=(
-    "hardhat"
-  )
+  if [[ "${_solc}" == "true" ]]; then
+    makedepends+=(
+      "solidity=0.8.28"
+    )
+  fi
+  if [[ "${_hardhat}" == "true" ]]; then
+    makedepends+=(
+      "hardhat"
+    )
+  fi
 fi
 checkdepends=(
   "shellcheck"
@@ -116,8 +147,8 @@ _tarname="${pkgname}-${_tag}"
 if [[ "${_offline}" == "true" ]]; then
   _url="file://${HOME}/${pkgname}"
 fi
-_sum="8454895e9a1149ea86e368b36f5a80b200c20e4365e5fe13fb8dea20be6aea54"
-_sig_sum="fe9ed5d91f9ef689e9fc2eb21ce3c69718e938562d55447c024ae0c4be9c1f75"
+_sum="55c3f5955d14dfa3916ec248e43f7b4be5651706d16afe08304be862003374ed"
+_sig_sum="f6ecb1bcc037523fd804b679f2dad2ada13ed90edde2288e7624a29cf7f46afe"
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
 _evmfs_network="100"
 _evmfs_address="0x69470b18f8b8b5f92b48f6199dcb147b4be96571"
@@ -200,25 +231,96 @@ build() {
   fi
 }
 
-package() {
+package_evm-openpgp-keyserver-contracts() {
+  local \
+    _make_opts=()
+  depends=()
+  _evm_openpgp_keyserver_optdepends=(
+   "${_pkg}:"
+     "reference EVM OpenPGP Key Server implementation."
+  )
+  optdepends=(
+    "${_evm_openpgp_keyserver_optdepends[*]}"
+  )
+  _make_opts=(
+    DESTDIR="${pkgdir}"
+    PREFIX='/usr'
+  )
   cd \
     "${_tarname}"
   make \
-    DESTDIR="${pkgdir}" \
-    PREFIX="/usr" \
-    install
+    "${_make_opts[@]}" \
+    install-contracts-sources
+  make \
+    "${_make_opts[@]}" \
+    install-contracts-deployments-config
   if [[ "${_solc}" == "true" ]]; then
     make \
-      DESTDIR="${pkgdir}" \
-      PREFIX="/usr" \
+      "${_make_opts[@]}" \
       install-contracts-deployments-solc
   fi
   if [[ "${_hardhat}" == "true" ]]; then
     make \
-      DESTDIR="${pkgdir}" \
-      PREFIX="/usr" \
+      "${_make_opts[@]}" \
       install-contracts-deployments-hardhat
   fi
+  install \
+    -Dm644 \
+    "COPYING" \
+    -t \
+    "${pkgdir}/usr/share/licenses/${pkgname}/"
+}
+
+package_evm-openpgp-keyserver() {
+  local \
+    _make_opts=()
+  depends+=(
+    "${_pkg}-contracts"
+  )
+  _make_opts=(
+    DESTDIR="${pkgdir}"
+    PREFIX='/usr'
+  )
+  cd \
+    "${_tarname}"
+  make \
+    "${_make_opts[@]}" \
+    install-scripts
+  install \
+    -Dm644 \
+    "COPYING" \
+    -t \
+    "${pkgdir}/usr/share/licenses/${pkgname}/"
+}
+
+package_evm-openpgp-keyserver-docs() {
+  local \
+    _make_opts=() \
+    _evm_openpgp_keyserver_optdepends=()
+  depends=()
+  _evm_openpgp_keyserver_optdepends+=(
+   "${_pkg}:"
+     "the package this documentation"
+     "package pertains to."
+  )
+  optdepends=(
+    "${_evm_openpgp_keyserver_optdepends[*]}"
+  )
+  _make_opts=(
+    DESTDIR="${pkgdir}"
+    PREFIX='/usr'
+  )
+  cd \
+    "${_tarname}"
+  make \
+    "${_make_opts[@]}" \
+    install-doc \
+    install-man
+  install \
+    -Dm644 \
+    "COPYING" \
+    -t \
+    "${pkgdir}/usr/share/licenses/${pkgname}/"
 }
 
 # vim: ft=sh syn=sh et
