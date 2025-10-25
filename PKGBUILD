@@ -85,7 +85,7 @@ if [[ "${_docs}" == "true" ]]; then
   )
 fi
 pkgver="0.0.0.0.0.0.0.0.0.0.0.1.1.1.1.1"
-_commit="2f663b61425182ca1ca3bca05aa8251b1ccfca7d"
+_commit="c3b440bf31312c9783574f69f64df9144967eb82"
 pkgrel=1
 _pkgdesc=(
   "Ethereum Virtual Machine OpenPGP Key Server."
@@ -166,8 +166,8 @@ _tarname="${pkgname}-${_tag}"
 if [[ "${_offline}" == "true" ]]; then
   _url="file://${HOME}/${pkgname}"
 fi
-_sum="09c2c90f7502c29ab88a8e29c01341985e6333b90082c8731d508ca4c29b83e2"
-_sig_sum="4de7c3c62d99a55f696edb97160b1ee224c8dac4e0befbd199aeefd2872696d6"
+_sum="11b68ee3d069b0ace72e88b9f653312c37e1bc4efd027376b4cc0006770fe79a"
+_sig_sum="47be3bd2a35006d81c29dfb9531eeb9ba298ddd0a7a1d0b80ce047b96c81138a"
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
 _evmfs_network="100"
 _evmfs_address="0x69470b18f8b8b5f92b48f6199dcb147b4be96571"
