@@ -213,9 +213,11 @@ elif [[ "${_evmfs}" == "false" ]]; then
 fi
 source=(
   "${_src}"
+  "COPYING"
 )
 sha256sums=(
   "${_sum}"
+  "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
 )
 validpgpkeys=(
   # Truocolo <truocolo@aol.com>
@@ -280,8 +282,8 @@ package_evm-openpgp-keyserver-contracts() {
       install-contracts-deployments-hardhat
   fi
   install \
-    -Dm644 \
-    "COPYING" \
+    -vDm644 \
+    "${srcdir}/COPYING" \
     -t \
     "${pkgdir}/usr/share/licenses/${pkgname}/"
 }
@@ -302,8 +304,8 @@ package_evm-openpgp-keyserver() {
     "${_make_opts[@]}" \
     install-scripts
   install \
-    -Dm644 \
-    "COPYING" \
+    -vDm644 \
+    "${srcdir}/COPYING" \
     -t \
     "${pkgdir}/usr/share/licenses/${pkgname}/"
 }
@@ -326,8 +328,8 @@ package_evm-openpgp-keyserver-docs() {
     install-doc \
     install-man
   install \
-    -Dm644 \
-    "COPYING" \
+    -vDm644 \
+    "${srcdir}/COPYING" \
     -t \
     "${pkgdir}/usr/share/licenses/${pkgname}/"
 }
