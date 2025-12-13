@@ -137,6 +137,7 @@ optdepends=(
   "${_evm_openpgp_keyserver_docs_optdepends[*]}"
 )
 makedepends=(
+  "binutils"
   'make'
   'solidity-compiler'
 )
