@@ -315,7 +315,7 @@ _build() {
     _makedepends_set["${_depend_target}"]="1"
   done
   _makedepends=(
-      "${_makedepends_set[@]}"
+      "${!_makedepends_set[@]}"
   )
   _fur_opts+=(
     -v
