@@ -174,6 +174,7 @@ if [[ "${_offline}" == "true" ]]; then
 fi
 _sum="11b68ee3d069b0ace72e88b9f653312c37e1bc4efd027376b4cc0006770fe79a"
 _sig_sum="47be3bd2a35006d81c29dfb9531eeb9ba298ddd0a7a1d0b80ce047b96c81138a"
+# Dvorak
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
 _evmfs_network="100"
 _evmfs_address="0x69470b18f8b8b5f92b48f6199dcb147b4be96571"

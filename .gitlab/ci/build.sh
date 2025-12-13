@@ -351,7 +351,7 @@ _build() {
       "${_fur_opts[@]}" \
       -t \
         "ci" \
-      "${_depend}" ||
+      "${_depend}" || \
     fur \
       "${_fur_opts[@]}" \
       -t \
@@ -360,7 +360,7 @@ _build() {
         "gitlab" \
       -l \
         "bur" \
-      "${_depend}" ||
+      "${_depend}" || \
     fur \
       "${_fur_opts[@]}" \
       -t \
@@ -369,7 +369,7 @@ _build() {
         "github" \
       -l \
         "fur" \
-      "${_depend}" ||
+      "${_depend}" || \
     true
   done
   _cmd+=(
