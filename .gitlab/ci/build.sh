@@ -169,7 +169,8 @@ _requirements() {
     _docs_commit \
     _git_http \
     _fur_release_latest \
-    _fur_release_public
+    _fur_release_public \
+    _libcrash_bash_release_latest
   _pkgname="${pkg%-ur}"
   _fur_mini_opts+=(
     "${platform}"
@@ -194,11 +195,14 @@ _requirements() {
     "${ns}" \
     "reallymakepkg" \
     "1.2.5-1" || \
-  fur \
-    "${_fur_opts[@]}" \
-    "reallymakepkg"
+  _libcrash_bash_release_latest="0.0.0.0.0.1.1.1.1.1-5"
   _fur_release_latest="1.0.0.0.0.0.0.0.0.0.0.0.1.1.1.1.1-1"
   _gur_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1.1-1"
+  _gur_mini \
+    "${ns}" \
+    "libcrash-bash" \
+    "${_libcrash_bash_release_latest}" || \
+  true
   _gur_mini \
     "${ns}" \
     "fur" \
