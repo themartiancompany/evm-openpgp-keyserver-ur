@@ -260,7 +260,11 @@ _build() {
     _pkgname \
     _resolve_flag \
     _work_dir \
-    _separators=()
+    _separators=() \
+    _makedepends_set
+  declare \
+    -A \
+    _makedepend_set
   _separators=(
     "<"
     ">"
@@ -309,10 +313,11 @@ _build() {
       echo \
         "${_msg[*]}"
     fi
-    _makedepends+=(
-      "${_depend_target}"
-    )
+    _makedepends_set["${_depend_target}"]="1"
   done
+  _makedepends=(
+      "${_makedepends_set[@]}"
+  )
   _fur_opts+=(
     -v
     -p
