@@ -260,11 +260,10 @@ _build() {
     _pkgname \
     _resolve_flag \
     _work_dir \
-    _separators=() \
-    _makedepends_set
+    _separators=()
   declare \
     -A \
-    _makedepend_set
+    _makedepends_set
   _separators=(
     "<"
     ">"
