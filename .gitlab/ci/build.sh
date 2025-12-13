@@ -195,6 +195,7 @@ _requirements() {
     "${ns}" \
     "reallymakepkg" \
     "1.2.5-1" || \
+  true
   _libcrash_bash_release_latest="0.0.0.0.0.1.1.1.1.1-5"
   _fur_release_latest="1.0.0.0.0.0.0.0.0.0.0.0.1.1.1.1.1-1"
   _gur_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1.1-1"
