@@ -205,27 +205,22 @@ _requirements() {
     "${_fur_release_latest}" \
     "n" || \
   true
-  _fur_opts+=(
-    -l
-      "bur"
-    -m
-      "gitlab"
-  )
-  fur \
-    "${_fur_opts[@]}" \
-    "gur"
-  _fur_opts+=(
-    -t
-      "ci"
-  )
-  fur \
-    "${_fur_opts[@]}" \
-    "reallymakepkg"
-  recipe-get \
-    -v \
-    "/home/user/${_pkgname}/PKGBUILD" \
-    "_git_http" || \
-    true
+  # _fur_opts+=(
+  #   -l
+  #     "bur"
+  #   -m
+  #     "gitlab"
+  # )
+  # fur \
+  #   "${_fur_opts[@]}" \
+  #   "gur"
+  # _fur_opts+=(
+  #   -t
+  #     "ci"
+  # )
+  # fur \
+  #   "${_fur_opts[@]}" \
+  #   "reallymakepkg"
   _git_http="$(
     recipe-get \
       "/home/user/${_pkgname}/PKGBUILD" \
@@ -241,22 +236,11 @@ _requirements() {
       "${ns}" \
       "${_pkgname}" \
       "${_commit}"
-    _docs_commit="$(
-      recipe-get \
-        "/home/user/${_pkgname}/PKGBUILD" \
-        "_docs_commit")"
-    _gl_dl_mini \
-      "${ns}" \
-      "${_pkgname}-docs-ur" \
-      "${_docs_commit}"
     recipe-get \
       "/home/user/${_pkgname}/PKGBUILD" \
       "_git_http"
     cp \
       "${HOME}/${_pkgname}-${_commit}.tar.gz" \
-      "/home/user/${_pkgname}"
-    cp \
-      "${HOME}/${_pkgname}-docs-${_commit}.tar.gz" \
       "/home/user/${_pkgname}"
   fi
 }
