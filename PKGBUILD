@@ -88,8 +88,8 @@ if [[ "${_docs}" == "true" ]]; then
     "${_pkg}-docs"
   )
 fi
-pkgver="0.0.0.0.0.0.0.0.0.0.0.1.1.1.1.1"
-_commit="c3b440bf31312c9783574f69f64df9144967eb82"
+pkgver="0.0.0.0.0.0.0.0.0.0.1"
+_commit="88cb881bb487beb95385197609e13ba9089cef75"
 pkgrel=15
 _pkgdesc=(
   "Ethereum Virtual Machine OpenPGP Key Server."
@@ -119,6 +119,12 @@ if [[ "${_os}" != "GNU/Linux" ]] && \
   depends+=(
   )
 fi
+_evm_gnupg_optdepends=(
+  "evm-gnupg:"
+    "Reference implementation"
+    "of the 'OpenPGP on Ethereum'"
+    "specification."
+)
 _evm_openpgp_keyserver_docs_optdepends=(
   "${_pkg}-docs:"
     "EVM OpenPGP Key Server documentation"
@@ -134,6 +140,7 @@ _evm_openpgp_keyserver_docs_ref_optdepends+=(
    "package pertains to."
 )
 optdepends=(
+  "${_evm_gnupg_optdepends[*]}"
   "${_evm_openpgp_keyserver_docs_optdepends[*]}"
 )
 makedepends=(
@@ -172,8 +179,8 @@ _tarfile="${_tarname}.${_archive_format}"
 if [[ "${_offline}" == "true" ]]; then
   _url="file://${HOME}/${pkgname}"
 fi
-_sum="11b68ee3d069b0ace72e88b9f653312c37e1bc4efd027376b4cc0006770fe79a"
-_sig_sum="47be3bd2a35006d81c29dfb9531eeb9ba298ddd0a7a1d0b80ce047b96c81138a"
+_sum="334dbb6bf449a248d1e72ab5a82b1f693fabdd4fdbeca385eef21bea02235633"
+_sig_sum="fd49c865d9b7c1c8292d492e660936c8810521bbfd23708bc478e9bfc11172cf"
 # Dvorak
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
 _evmfs_network="100"
