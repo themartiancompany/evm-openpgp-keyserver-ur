@@ -197,7 +197,7 @@ _requirements() {
     "1.2.5-1" || \
   true
   _libcrash_bash_release_latest="0.0.0.0.0.1.1.1.1.1-5"
-  _fur_release_latest="1.0.0.0.0.0.0.0.0.0.0.0.1.1.1.1.1-1"
+  _fur_release_latest="1.0.0.0.0.0.0.0.0.0.0.1-2"
   _gur_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1.1-1"
   _gur_mini \
     "${ns}" \
@@ -292,6 +292,17 @@ _build() {
     -df
     --nocheck
   )
+  if [[ "${ns}" != "themartiancompany" ]]; then
+    _evmfs="$( \
+      recipe-get \
+        "/home/user/${_pkgname}/PKGBUILD" \
+        "_evmfs")"
+    if [[ "${_evmfs}" == "false" ]]; then
+      _makepkg_opts+=(
+        --skipinteg
+      )
+    fi
+  fi
   for _depend in $(recipe-get \
                      "${_pkgbuild}" \
         "makedepends"); do
