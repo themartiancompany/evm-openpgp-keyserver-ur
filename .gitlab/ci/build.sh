@@ -170,6 +170,8 @@ _requirements() {
     _git_http \
     _fur_release_latest \
     _fur_release_public \
+    _gl_dl_release_latest \
+    _gur_release_latest \
     _libcrash_bash_release_latest
   _pkgname="${pkg%-ur}"
   _fur_mini_opts+=(
@@ -199,10 +201,21 @@ _requirements() {
   _libcrash_bash_release_latest="0.0.0.0.0.1.1.1.1.1-5"
   _fur_release_latest="1.0.0.0.0.0.0.0.0.0.0.1-2"
   _gur_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.0.0.1-1"
+  _gl_dl_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.1.1.1.1.1.1-3"
   _gur_mini \
     "${ns}" \
     "libcrash-bash" \
     "${_libcrash_bash_release_latest}" || \
+  true
+  _gur_mini \
+    "${ns}" \
+    "gl-dl" \
+    "${_gl_dl_release_latest}" || \
+  true
+  _gur_mini \
+    "${ns}" \
+    "gur" \
+    "${_gur_release_latest}" || \
   true
   _gur_mini \
     "${ns}" \
