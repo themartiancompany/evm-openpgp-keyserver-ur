@@ -204,7 +204,7 @@ _requirements() {
     "1.2.5-1" || \
   true
   _libcrash_bash_release_latest="0.0.0.0.0.1.1.1.1.1-5"
-  _evm_gnupg_release_latest="0.0.0.0.0.0.0.0.1.1.1.1.1.1-2"
+  _evm_gnupg_release_latest="0.0.0.0.0.0.0.0.1.1.1.1.1.1-3"
   _fur_release_latest="1.0.0.0.0.0.0.0.0.0.0.1-2"
   _gur_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.0.0.1-1"
   _evm_chains_explorers_release_latest="0.0.0.0.0.0.0.0.0.0.1.1.1-3"
