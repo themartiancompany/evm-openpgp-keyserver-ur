@@ -168,11 +168,16 @@ _requirements() {
     _commit \
     _docs_commit \
     _git_http \
+    _evm_chains_explorers_release_latest \
+    _evm_chains_info_release_latest \
+    _evm_contracts_tools_release_latest \
+    _evm_gnupg_release_latest \
     _fur_release_latest \
     _fur_release_public \
     _gl_dl_release_latest \
     _gur_release_latest \
-    _libcrash_bash_release_latest
+    _libcrash_bash_release_latest \
+    _node_run_release_latest
   _pkgname="${pkg%-ur}"
   _fur_mini_opts+=(
     "${platform}"
@@ -199,9 +204,15 @@ _requirements() {
     "1.2.5-1" || \
   true
   _libcrash_bash_release_latest="0.0.0.0.0.1.1.1.1.1-5"
+  _evm_gnupg_release_latest="0.0.0.0.0.0.0.0.1.1.1.1.1.1-2"
   _fur_release_latest="1.0.0.0.0.0.0.0.0.0.0.1-2"
   _gur_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.0.0.1-1"
+  _evm_chains_explorers_release_latest="0.0.0.0.0.0.0.0.0.0.1.1.1-3"
+  _evm_chains_info_release_latest="0.0.0.0.0.0.0.0.0.0.1.1.1.1.1.1.1-6"
+  _evm_contract_tools_release_latest="0.0.0.0.0.0.0.0.1.1.1.1.1-1"
   _gl_dl_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.1.1.1.1.1.1-3"
+  _libevm_release_latest="0.0.0.0.0.0.0.0.1.1.1.1.1.1.1-4"
+  _node_run_release_latest="0.0.0.0.0.0.0.0.1-8"
   _gur_mini \
     "${ns}" \
     "libcrash-bash" \
@@ -209,8 +220,39 @@ _requirements() {
   true
   _gur_mini \
     "${ns}" \
+    "node_run" \
+    "${_node_run_release_latest}" || \
+  true
+  _gur_mini \
+    "${ns}" \
     "gl-dl" \
     "${_gl_dl_release_latest}" || \
+  true
+  _gur_mini \
+    "${ns}" \
+    "evm-chains-explorers" \
+    "${_libevm_release_latest}" || \
+  true
+  _gur_mini \
+    "${ns}" \
+    "evm-chains-info" \
+    "${_libevm_release_latest}" || \
+  true
+  _gur_mini \
+    "${ns}" \
+    "libevm" \
+    "${_libevm_release_latest}" || \
+  true
+  _gur_mini \
+    "${ns}" \
+    "evm-contracts-tools" \
+    "${_evm_contract_tools_release_latest}" || \
+  true
+  _gur_mini \
+    "${ns}" \
+    "evm-gnupg" \
+    "${_evm_gnupg_release_latest}" \
+    "n" || \
   true
   _gur_mini \
     "${ns}" \
