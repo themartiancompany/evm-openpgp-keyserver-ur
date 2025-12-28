@@ -225,7 +225,7 @@ _requirements() {
   _libevm_release_latest="0.0.0.0.0.0.0.0.1.1.1.1.1.1.1-4"
   _node_run_release_latest="0.0.0.0.0.0.0.0.1-8"
   _python_aiohttp_retry_release_latest="2.8.3-4"
-  _python_aioetherscan_release_latest="0.9.6.1-3"
+  _python_aioetherscan_release_latest="0.9.6.1-7"
   _python_asyncio_throttle_release_latest="1.0.2-4"
   _gur_mini \
     "${ns}" \
