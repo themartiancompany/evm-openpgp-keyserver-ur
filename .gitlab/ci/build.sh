@@ -220,6 +220,7 @@ _requirements() {
   _fur_release_latest="1.0.0.0.0.0.0.0.0.0.0.1-2"
   _gl_dl_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.1.1.1.1.1.1-3"
   _gur_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.0.0.1-1"
+  _key_gen_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.1.1-2"
   _libcrash_bash_release_latest="0.0.0.0.0.1.1.1.1.1-5"
   _libcrash_js_release_latest="0.1.69-25"
   _libevm_release_latest="0.0.0.0.0.0.0.0.1.1.1.1.1.1.1-4"
@@ -246,6 +247,11 @@ _requirements() {
     "${ns}" \
     "gl-dl" \
     "${_gl_dl_release_latest}" || \
+  true
+  _gur_mini \
+    "${ns}" \
+    "key-gen" \
+    "${_key_gen_release_latest}" || \
   true
   _gur_mini \
     "${ns}" \
