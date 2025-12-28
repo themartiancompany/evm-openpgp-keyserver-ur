@@ -168,15 +168,18 @@ _requirements() {
     _commit \
     _docs_commit \
     _git_http \
+    _evm_chains_release_latest \
     _evm_chains_explorers_release_latest \
     _evm_chains_info_release_latest \
     _evm_contracts_tools_release_latest \
     _evm_gnupg_release_latest \
+    _evm_wallet_release_latest \
     _fur_release_latest \
     _fur_release_public \
     _gl_dl_release_latest \
     _gur_release_latest \
     _libcrash_bash_release_latest \
+    _libcrash_js_release_latest \
     _node_run_release_latest
   _pkgname="${pkg%-ur}"
   _fur_mini_opts+=(
@@ -203,14 +206,17 @@ _requirements() {
     "reallymakepkg" \
     "1.2.5-1" || \
   true
-  _libcrash_bash_release_latest="0.0.0.0.0.1.1.1.1.1-5"
-  _evm_gnupg_release_latest="0.0.0.0.0.0.0.0.1.1.1.1.1.1-3"
-  _fur_release_latest="1.0.0.0.0.0.0.0.0.0.0.1-2"
-  _gur_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.0.0.1-1"
+  _evm_chains_release_latest="20250816-3"
   _evm_chains_explorers_release_latest="0.0.0.0.0.0.0.0.0.0.1.1.1-3"
   _evm_chains_info_release_latest="0.0.0.0.0.0.0.0.0.0.1.1.1.1.1.1.1-6"
   _evm_contract_tools_release_latest="0.0.0.0.0.0.0.0.1.1.1.1.1-1"
+  _evm_gnupg_release_latest="0.0.0.0.0.0.0.0.1.1.1.1.1.1-3"
+  _evm_wallet_release_latest="0.0.0.0.0.0.0.0.0.0.1.1.1-3"
+  _fur_release_latest="1.0.0.0.0.0.0.0.0.0.0.1-2"
   _gl_dl_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.1.1.1.1.1.1-3"
+  _gur_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.0.0.1-1"
+  _libcrash_bash_release_latest="0.0.0.0.0.1.1.1.1.1-5"
+  _libcrash_js_release_latest="0.1.69-9"
   _libevm_release_latest="0.0.0.0.0.0.0.0.1.1.1.1.1.1.1-4"
   _node_run_release_latest="0.0.0.0.0.0.0.0.1-8"
   _gur_mini \
@@ -230,13 +236,23 @@ _requirements() {
   true
   _gur_mini \
     "${ns}" \
+    "evm-chains" \
+    "${_evm_chains_release_latest}" || \
+  true
+  _gur_mini \
+    "${ns}" \
     "evm-chains-explorers" \
-    "${_libevm_release_latest}" || \
+    "${_evm_chains_explorers_release_latest}" || \
   true
   _gur_mini \
     "${ns}" \
     "evm-chains-info" \
-    "${_libevm_release_latest}" || \
+    "${_evm_chains_info_release_latest}" || \
+  true
+  _gur_mini \
+    "${ns}" \
+    "libcrash-js" \
+    "${_evm_chains_info_release_latest}" || \
   true
   _gur_mini \
     "${ns}" \
@@ -245,13 +261,26 @@ _requirements() {
   true
   _gur_mini \
     "${ns}" \
+    "evm-wallet" \
+    "${_evm_wallet_release_latest}" \
+    "n" || \
+  true
+  _gur_mini \
+    "${ns}" \
     "evm-contracts-tools" \
-    "${_evm_contract_tools_release_latest}" || \
+    "${_evm_contract_tools_release_latest}" \
+    "n" || \
   true
   _gur_mini \
     "${ns}" \
     "evm-gnupg" \
     "${_evm_gnupg_release_latest}" \
+    "n" || \
+  true
+  _gur_mini \
+    "${ns}" \
+    "evm-wallet" \
+    "${_evm_wallet_release_latest}" \
     "n" || \
   true
   _gur_mini \
