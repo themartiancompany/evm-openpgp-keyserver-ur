@@ -171,6 +171,7 @@ _requirements() {
     _evm_chains_release_latest \
     _evm_chains_explorers_release_latest \
     _evm_chains_info_release_latest \
+    _evm_contracts_abi_get_release_latest \
     _evm_contracts_tools_release_latest \
     _evm_gnupg_release_latest \
     _evm_wallet_release_latest \
@@ -180,7 +181,10 @@ _requirements() {
     _gur_release_latest \
     _libcrash_bash_release_latest \
     _libcrash_js_release_latest \
-    _node_run_release_latest
+    _node_run_release_latest \
+    _python_asyncio_throttle_release_latest \
+    _python_aioetherscan_release_latest \
+    _python_aiohttp_retry_release_latest
   _pkgname="${pkg%-ur}"
   _fur_mini_opts+=(
     "${platform}"
@@ -209,6 +213,7 @@ _requirements() {
   _evm_chains_release_latest="20250816-3"
   _evm_chains_explorers_release_latest="0.0.0.0.0.0.0.0.0.0.1.1.1-3"
   _evm_chains_info_release_latest="0.0.0.0.0.0.0.0.0.0.1.1.1.1.1.1.1-6"
+  _evm_contracts_abi_get_release_latest="0.0.0.0.0.0.0.0.0.0.0.1.1.1.1.1.1-2"
   _evm_contract_tools_release_latest="0.0.0.0.0.0.0.0.1.1.1.1.1-1"
   _evm_gnupg_release_latest="0.0.0.0.0.0.0.0.1.1.1.1.1.1-3"
   _evm_wallet_release_latest="0.0.0.0.0.0.0.0.0.0.1.1.1-3"
@@ -219,10 +224,18 @@ _requirements() {
   _libcrash_js_release_latest="0.1.69-9"
   _libevm_release_latest="0.0.0.0.0.0.0.0.1.1.1.1.1.1.1-4"
   _node_run_release_latest="0.0.0.0.0.0.0.0.1-8"
+  _python_aiohttp_retry_release_latest="2.8.3-4"
+  _python_aioetherscan_release_latest="0.9.6.1-3"
+  _python_asyncio_throttle_release_latest="1.0.2-4"
   _gur_mini \
     "${ns}" \
     "libcrash-bash" \
     "${_libcrash_bash_release_latest}" || \
+  true
+  _gur_mini \
+    "${ns}" \
+    "libcrash-js" \
+    "${_libcrash_js_release_latest}" || \
   true
   _gur_mini \
     "${ns}" \
@@ -264,6 +277,26 @@ _requirements() {
     "evm-wallet" \
     "${_evm_wallet_release_latest}" \
     "n" || \
+  true
+  _gur_mini \
+    "${ns}" \
+    "python-asyncio-throttle" \
+    "${_python_asyncio_throttle_release_latest}" || \
+  true
+  _gur_mini \
+    "${ns}" \
+    "python-aiohttp-retry" \
+    "${_python_aiohttp_retry_release_latest}" || \
+  true
+  _gur_mini \
+    "${ns}" \
+    "python-aioetherscan" \
+    "${_python_aioetherscan_release_latest}" || \
+  true
+  _gur_mini \
+    "${ns}" \
+    "evm-contracts-abi-get" \
+    "${_evm_contracts_abi_get_release_latest}" || \
   true
   _gur_mini \
     "${ns}" \
