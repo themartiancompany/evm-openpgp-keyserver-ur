@@ -330,7 +330,8 @@ _requirements() {
   _gur_mini \
     "${ns}" \
     "fur" \
-    "${_fur_release_latest}" || \
+    "${_fur_release_latest}" \
+    "n" || \
   true
   # _fur_opts+=(
   #   -l
