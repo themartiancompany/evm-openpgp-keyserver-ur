@@ -334,6 +334,7 @@ _requirements() {
   true
   pacman \
     -S \
+    --noconfirm \
     "tree"
   # _fur_opts+=(
   #   -l
