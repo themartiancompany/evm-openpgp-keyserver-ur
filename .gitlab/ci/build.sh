@@ -220,7 +220,7 @@ _requirements() {
   _fur_release_latest="1.0.0.0.0.0.0.0.0.0.0.1-2"
   _gl_dl_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.1.1.1.1.1.1-3"
   _gur_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.0.0.1-1"
-  _key_gen_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.1.1-2"
+  _key_gen_release_latest="0.0.0.0.0.0.0.0.0.0.0.1-2"
   _libcrash_bash_release_latest="0.0.0.0.0.1.1.1.1.1-5"
   _libcrash_js_release_latest="0.1.69-25"
   _libevm_release_latest="0.0.0.0.0.0.0.0.1.1.1.1.1.1.1-4"
@@ -228,6 +228,7 @@ _requirements() {
   _python_aiohttp_retry_release_latest="2.8.3-4"
   _python_aioetherscan_release_latest="0.9.6.1-7"
   _python_asyncio_throttle_release_latest="1.0.2-4"
+  _ucantellme_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.0.1.1.1-2"
   _gur_mini \
     "${ns}" \
     "libcrash-bash" \
@@ -247,6 +248,11 @@ _requirements() {
     "${ns}" \
     "gl-dl" \
     "${_gl_dl_release_latest}" || \
+  true
+  _gur_mini \
+    "${ns}" \
+    "ucantellme" \
+    "${_ucantellme_release_latest}" || \
   true
   _gur_mini \
     "${ns}" \
@@ -287,22 +293,26 @@ _requirements() {
   _gur_mini \
     "${ns}" \
     "python-asyncio-throttle" \
-    "${_python_asyncio_throttle_release_latest}" || \
+    "${_python_asyncio_throttle_release_latest}" \
+    "n" || \
   true
   _gur_mini \
     "${ns}" \
     "python-aiohttp-retry" \
-    "${_python_aiohttp_retry_release_latest}" || \
+    "${_python_aiohttp_retry_release_latest}" \
+    "n" || \
   true
   _gur_mini \
     "${ns}" \
     "python-aioetherscan" \
-    "${_python_aioetherscan_release_latest}" || \
+    "${_python_aioetherscan_release_latest}" \
+    "n" || \
   true
   _gur_mini \
     "${ns}" \
     "evm-contracts-abi-get" \
-    "${_evm_contracts_abi_get_release_latest}" || \
+    "${_evm_contracts_abi_get_release_latest}" \
+    "n" || \
   true
   _gur_mini \
     "${ns}" \
@@ -318,14 +328,9 @@ _requirements() {
   true
   _gur_mini \
     "${ns}" \
-    "evm-wallet" \
-    "${_evm_wallet_release_latest}" \
-    "n" || \
-  true
-  _gur_mini \
-    "${ns}" \
     "gur" \
-    "${_gur_release_latest}" || \
+    "${_gur_release_latest}" \
+    "n" || \
   true
   _gur_mini \
     "${ns}" \
