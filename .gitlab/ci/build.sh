@@ -285,32 +285,27 @@ _requirements() {
   _gur_mini \
     "${ns}" \
     "libevm" \
-    "${_libevm_release_latest}" \
-    "n" || \
+    "${_libevm_release_latest}" || \
   true
   _gur_mini \
     "${ns}" \
     "python-asyncio-throttle" \
-    "${_python_asyncio_throttle_release_latest}" \
-    "n" || \
+    "${_python_asyncio_throttle_release_latest}" || \
   true
   _gur_mini \
     "${ns}" \
     "python-aiohttp-retry" \
-    "${_python_aiohttp_retry_release_latest}" \
-    "n" || \
+    "${_python_aiohttp_retry_release_latest}" || \
   true
   _gur_mini \
     "${ns}" \
     "python-aioetherscan" \
-    "${_python_aioetherscan_release_latest}" \
-    "n" || \
+    "${_python_aioetherscan_release_latest}" || \
   true
   _gur_mini \
     "${ns}" \
     "evm-contracts-abi-get" \
-    "${_evm_contracts_abi_get_release_latest}" \
-    "n" || \
+    "${_evm_contracts_abi_get_release_latest}" || \
   true
   _gur_mini \
     "${ns}" \
