@@ -232,42 +232,50 @@ _requirements() {
   _gur_mini \
     "${ns}" \
     "libcrash-bash" \
-    "${_libcrash_bash_release_latest}" || \
+    "${_libcrash_bash_release_latest}" \
+    "n" || \
   true
   _gur_mini \
     "${ns}" \
     "libcrash-js" \
-    "${_libcrash_js_release_latest}" || \
+    "${_libcrash_js_release_latest}" \
+    "n" || \
   true
   _gur_mini \
     "${ns}" \
-    "node_run" \
-    "${_node_run_release_latest}" || \
+    "node-run" \
+    "${_node_run_release_latest}" \
+    "n" || \
   true
   _gur_mini \
     "${ns}" \
     "gl-dl" \
-    "${_gl_dl_release_latest}" || \
+    "${_gl_dl_release_latest}" \
+    "n" || \
   true
   _gur_mini \
     "${ns}" \
     "ucantellme" \
-    "${_ucantellme_release_latest}" || \
+    "${_ucantellme_release_latest}" \
+    "n" || \
   true
   _gur_mini \
     "${ns}" \
     "key-gen" \
-    "${_key_gen_release_latest}" || \
+    "${_key_gen_release_latest}" \
+    "n" || \
   true
   _gur_mini \
     "${ns}" \
     "evm-chains" \
-    "${_evm_chains_release_latest}" || \
+    "${_evm_chains_release_latest}" \
+    "n" || \
   true
   _gur_mini \
     "${ns}" \
     "evm-chains-explorers" \
-    "${_evm_chains_explorers_release_latest}" || \
+    "${_evm_chains_explorers_release_latest}" \
+    "n" || \
   true
   _gur_mini \
     "${ns}" \
@@ -276,18 +284,8 @@ _requirements() {
   true
   _gur_mini \
     "${ns}" \
-    "libcrash-js" \
-    "${_evm_chains_info_release_latest}" || \
-  true
-  _gur_mini \
-    "${ns}" \
     "libevm" \
-    "${_libevm_release_latest}" || \
-  true
-  _gur_mini \
-    "${ns}" \
-    "evm-wallet" \
-    "${_evm_wallet_release_latest}" \
+    "${_libevm_release_latest}" \
     "n" || \
   true
   _gur_mini \
@@ -316,15 +314,18 @@ _requirements() {
   true
   _gur_mini \
     "${ns}" \
+    "evm-wallet" \
+    "${_evm_wallet_release_latest}" || \
+  true
+  _gur_mini \
+    "${ns}" \
     "evm-contracts-tools" \
-    "${_evm_contract_tools_release_latest}" \
-    "n" || \
+    "${_evm_contract_tools_release_latest}" || \
   true
   _gur_mini \
     "${ns}" \
     "evm-gnupg" \
-    "${_evm_gnupg_release_latest}" \
-    "n" || \
+    "${_evm_gnupg_release_latest}" || \
   true
   _gur_mini \
     "${ns}" \
