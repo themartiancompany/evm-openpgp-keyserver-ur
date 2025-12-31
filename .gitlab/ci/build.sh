@@ -489,6 +489,8 @@ _build() {
       "${_fur_opts[@]}" \
       -t \
         "ci" \
+      -n \
+        "${ns}"
       "${_depend}" || \
     fur \
       "${_fur_opts[@]}" \
