@@ -335,7 +335,8 @@ _requirements() {
   pacman \
     -S \
     --noconfirm \
-    "tree"
+    "tree" \
+    "github-cli"
   # _fur_opts+=(
   #   -l
   #     "bur"
