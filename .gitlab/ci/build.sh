@@ -336,7 +336,8 @@ _requirements() {
     -S \
     --noconfirm \
     "tree" \
-    "github-cli"
+    "github-cli" \
+    "unzip"
   # _fur_opts+=(
   #   -l
   #     "bur"
