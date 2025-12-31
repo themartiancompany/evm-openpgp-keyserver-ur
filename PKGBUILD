@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0
-  _fur_release_latest="1.0.0.0.0.0.0.0.0.0.0.1-2"
 
 #    ----------------------------------------------------------------------
 #    Copyright © 2024, 2025  Pellegrino Prevete
@@ -91,7 +90,7 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver="0.0.0.0.0.0.0.0.0.0.1"
 _commit="88cb881bb487beb95385197609e13ba9089cef75"
-pkgrel=38
+pkgrel=39
 _pkgdesc=(
   "Ethereum Virtual Machine OpenPGP Key Server."
 )
