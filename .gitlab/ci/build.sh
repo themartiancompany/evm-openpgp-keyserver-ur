@@ -217,7 +217,7 @@ _requirements() {
   _evm_contract_tools_release_latest="0.0.0.0.0.0.0.0.1.1.1.1.1-1"
   _evm_gnupg_release_latest="0.0.0.0.0.0.0.0.1.1.1.1.1.1-3"
   _evm_wallet_release_latest="0.0.0.0.0.0.0.0.0.0.1.1.1-3"
-  _fur_release_latest="1.0.0.0.0.0.0.0.0.0.1-1"
+  _fur_release_latest="1.0.0.0.0.0.0.0.0.0.1.1-1"
   _gl_dl_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.1.1.1.1.1.1-3"
   _gur_release_latest="0.0.0.0.0.0.0.0.0.0.0.0.0.0.1.1-1"
   _key_gen_release_latest="0.0.0.0.0.0.0.0.0.0.0.1-2"
