@@ -446,6 +446,8 @@ _build() {
     _depend_pkgver \
     _depend_target \
     _home \
+    _node_available \
+    _pacman_opts=() \
     _pkgbuild \
     _pkgname \
     _resolve_flag \
@@ -488,9 +490,10 @@ _build() {
       )
     fi
   fi
-  for _depend in $(recipe-get \
-                     "${_pkgbuild}" \
-        "makedepends"); do
+  for _depend \
+    in $(recipe-get \
+           "${_pkgbuild}" \
+           "makedepends"); do
     _resolve_flag="false"
     _depend_target="${_depend}"
     for _sep in "${_separators[@]}"; do
@@ -531,6 +534,52 @@ _build() {
     )
     echo \
       "${_msg[*]}"
+    _pacman_opts=(
+      -S
+      --noconfirm
+    )
+    if [[ "${_depend}" == "nodejs-lts"* ]]; then
+      _node_available="$(
+        ( pacman \
+            -Q \
+            "nodejs" \
+            2>"/dev/null" ) |
+          grep \
+            "^Name\b" |
+          awk \
+            -F \
+              ":" \
+            '{print $2}' \
+          2>/dev/null)"
+      if [[ "${_node_available}" == "nodejs" ]]; then
+        _pacman_opts+=(
+          --ask
+            4
+          -dd
+        )
+        _msg=(
+          "A specific version of Node.js"
+          "LTS is required as a dependency."
+          "That's ill-posed, as if a specific"
+          "package version does require a specific"
+          "version of Node then it should request"
+          "that version and not just simply"
+          "a 'latest - N' version because"
+          "that's not a version it's a tag."
+          "So more or less somebody should produce"
+          "not even 'nodejs-lts-jod' but simply"
+          "'nodejsXY' and require it in the package."
+        )
+        echo \
+          "${_msg[*]}"
+      elif [[ "${_node_available}" == "nodejs-lts"* ]]; then
+        _msg=(
+          "Node.js LTS installed."
+        )
+        echo \
+          "${_msg[*]}"
+      fi
+    fi
     pacman \
       -S \
       --noconfirm \
