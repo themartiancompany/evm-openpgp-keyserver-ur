@@ -3,29 +3,37 @@
 # SPDX-License-Identifier: AGPL-3.0
 
 #    ----------------------------------------------------------------------
-#    Copyright © 2022, 2023, 2024, 2025  Pellegrino Prevete
+#    Copyright © 2022, 2023, 2024, 2025, 2026  Pellegrino Prevete
 #
 #    All rights reserved
 #    ----------------------------------------------------------------------
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU Affero General Public License for more details.
 #
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#    You should have received a copy of the GNU Affero General Public
+#    License along with this program.
+#    If not, see <https://www.gnu.org/licenses/>.
 
 
 # This script is run within a virtual environment to build
-#  pakcage
+#  package
 # $1: platform
 # $2: architecture
+# $3: namespace
+# $4: package
+# $5: (optional) project-id
+# $6: (optional) commit
+# $7: (optional) tag
+# $8: (optional) ci-job-token
+# $9: (optional) package-registry-url
 
 set \
   -euo \
