@@ -64,6 +64,7 @@ variables:
           "fakeroot"
           "gnupg"
           "make"
+          "nodejs-lts"
           "python"
           "shfmt"
        )
