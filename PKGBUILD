@@ -91,7 +91,7 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver="0.0.0.0.0.0.0.0.0.0.1"
 _commit="88cb881bb487beb95385197609e13ba9089cef75"
-pkgrel=57
+pkgrel=58
 _pkgdesc=(
   "Ethereum Virtual Machine OpenPGP Key Server."
 )
@@ -160,7 +160,7 @@ if [[ "${_contracts}" == "true" ]]; then
   )
   if [[ "${_solc}" == "true" ]]; then
     makedepends+=(
-      "solidity=0.8.28"
+      "solidity0.8.28"
     )
   fi
   if [[ "${_hardhat}" == "true" ]]; then
