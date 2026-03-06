@@ -493,6 +493,9 @@ _build() {
       )
     fi
   fi
+  recipe-get \
+    "${_pkgbuild}" \
+    "makedepends"
   for _depend \
     in $(recipe-get \
            "${_pkgbuild}" \
