@@ -432,6 +432,9 @@ _requirements() {
     cp \
       "${HOME}/${_pkgname}-${_commit}.tar.gz" \
       "/home/user/${_pkgname}"
+  else
+    echo \
+      "Direct download in the PKGBUILD"
   fi
 }
 
