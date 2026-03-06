@@ -99,7 +99,7 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver="0.0.0.0.0.0.0.0.0.1"
 _commit="3e407b1cc2e94bc3ebc3ec7e428e12cfac410e8c"
-pkgrel=2
+pkgrel=3
 _pkgdesc=(
   "Ethereum Virtual Machine OpenPGP Key Server."
 )
@@ -190,6 +190,10 @@ if [[ "${_offline}" == "true" ]]; then
 fi
 _sum="334dbb6bf449a248d1e72ab5a82b1f693fabdd4fdbeca385eef21bea02235633"
 _sig_sum="fd49c865d9b7c1c8292d492e660936c8810521bbfd23708bc478e9bfc11172cf"
+if [[ "${_git_http}" == "github" ]]; then
+  _github_sum="${_sum}"
+  _github_sig_sum="${_sig_sum}"
+fi
 # Dvorak
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
 _evmfs_network="100"
