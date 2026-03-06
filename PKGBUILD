@@ -99,7 +99,7 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver="0.0.0.0.0.0.0.0.0.1"
 _commit="3e407b1cc2e94bc3ebc3ec7e428e12cfac410e8c"
-pkgrel=6
+pkgrel=7
 _pkgdesc=(
   "Ethereum Virtual Machine OpenPGP Key Server."
 )
@@ -188,8 +188,8 @@ _tarfile="${_tarname}.${_archive_format}"
 if [[ "${_offline}" == "true" ]]; then
   _url="file://${HOME}/${pkgname}"
 fi
-_sum="334dbb6bf449a248d1e72ab5a82b1f693fabdd4fdbeca385eef21bea02235633"
-_sig_sum="fd49c865d9b7c1c8292d492e660936c8810521bbfd23708bc478e9bfc11172cf"
+_sum="8f466b7a3c102274359d1fd4a73f925ae7730783bd123cf4c3fcc05d2a28e32b"
+_sig_sum="a4994eb0d63c185c6c0c3253bdc2c28ce9f886021036eb4e71c3cee59f2c586e"
 if [[ "${_git_http}" == "github" ]]; then
   _github_sum="${_sum}"
   _github_sig_sum="${_sig_sum}"
