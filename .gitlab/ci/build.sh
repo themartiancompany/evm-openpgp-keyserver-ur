@@ -653,7 +653,7 @@ _build() {
       "work directory content."
     )
     tree \
-      -L 5 \
+      -L 2 \
       "${_work_dir}"
     tar \
       cJf \
