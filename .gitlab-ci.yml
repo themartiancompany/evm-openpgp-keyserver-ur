@@ -6,7 +6,7 @@
 #    .gitlab-ci.yaml
 #
 #    ----------------------------------------------------------------------
-#    Copyright © 2022, 2023, 2024, 2025
+#    Copyright © 2022, 2023, 2024, 2025, 2026
 #                Pellegrino Prevete
 #
 #    All rights reserved
@@ -71,7 +71,7 @@ variables:
           "nodejs-lts-jod"
           "python"
           "shfmt"
-        )
+       )
       pacman \
         -Su \
         --needed \
@@ -167,6 +167,9 @@ build:
   parallel:
     matrix:
       - BUILD_SCRIPT_ARGS: arch x86_64 ${CI_PROJECT_NAMESPACE} ${CI_PROJECT_NAME} ${CI_PROJECT_ID} ${CI_COMMIT_SHA} ${CI_COMMIT_TAG} ${CI_JOB_TOKEN} ${PACKAGE_REGISTRY_URL}
+  rules:
+    - if:
+        $CI_COMMIT_TAG
   only:
     refs:
       - master
