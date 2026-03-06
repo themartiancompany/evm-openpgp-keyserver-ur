@@ -44,8 +44,16 @@ if [[ ! -v "_evmfs" ]]; then
     _evmfs="false"
   fi
 fi
+if [[ ! -v "_ns" ]]; then
+  _ns="themartiancompany"
+fi
+if [[ ! -v "_git_service" ]]; then
+  # _git_http="gitlab"
+  _git_service="github"
+fi
 if [[ ! -v "_git_http" ]]; then
-  _git_http="gitlab"
+  # _git_http="gitlab"
+  _git_http="${_git_service}"
 fi
 if [[ ! -v "_archive_format" ]]; then
   if [[ "${_git_http}" == "github" ]]; then
@@ -89,9 +97,9 @@ if [[ "${_docs}" == "true" ]]; then
     "${_pkg}-docs"
   )
 fi
-pkgver="0.0.0.0.0.0.0.0.0.0.1"
-_commit="88cb881bb487beb95385197609e13ba9089cef75"
-pkgrel=69
+pkgver="0.0.0.0.0.0.0.0.0.1"
+_commit="3e407b1cc2e94bc3ebc3ec7e428e12cfac410e8c"
+pkgrel=1
 _pkgdesc=(
   "Ethereum Virtual Machine OpenPGP Key Server."
 )
@@ -99,8 +107,7 @@ pkgdesc="${_pkgdesc[*]}"
 arch=(
   'any'
 )
-_http="https://github.com"
-_ns="themartiancompany"
+_http="https://${_git_http}.com"
 url="${_http}/${_ns}/${pkgname}"
 license=(
   'AGPL3'
@@ -160,6 +167,7 @@ if [[ "${_contracts}" == "true" ]]; then
   )
   if [[ "${_solc}" == "true" ]]; then
     makedepends+=(
+      "solidity0.8.24"
       "solidity0.8.28"
     )
   fi
