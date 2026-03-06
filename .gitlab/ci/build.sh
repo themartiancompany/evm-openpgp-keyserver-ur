@@ -488,6 +488,7 @@ _build() {
       "${_work_dir}"
   )
   _makepkg_opts+=(
+    -d
     -f
     --nocheck
   )
