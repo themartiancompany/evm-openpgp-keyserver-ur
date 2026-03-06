@@ -91,7 +91,7 @@ variables:
         "/root/.config/gitlab.com/default.txt"
       cp \
         "/root/.config/gitlab.com/default.txt" \
-        "/root/.config/gitlab.com/${CI_PROJECT_NAMESPACE}"
+        "/root/.config/gitlab.com/${CI_PROJECT_NAMESPACE}.txt"
       if [[ "${BUR_GPG_KEY}" == "" ]]; then
         _msg=(
           "Missing Bur GPG key."
@@ -138,7 +138,7 @@ variables:
       echo \
         "Free memory: '${_mem_free}'"
       _ramdisk_size="$(( \
-        "${_mem_free}" / 2000 ))"
+        "${_mem_free}" / 3000 ))"
       mount \
         -o \
           "size=${_ramdisk_size}M" \
@@ -181,6 +181,7 @@ release:
   artifacts:
     reports:
       metrics: output/metrics.txt
+    when: on_failure
     paths:
       - build-directory.tar.xz
   stage: build
