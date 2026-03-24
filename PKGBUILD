@@ -99,7 +99,7 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver="0.0.0.0.0.0.0.0.0.1"
 _commit="3e407b1cc2e94bc3ebc3ec7e428e12cfac410e8c"
-pkgrel=23
+pkgrel=24
 _pkgdesc=(
   "Ethereum Virtual Machine OpenPGP Key Server."
 )

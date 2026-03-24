@@ -720,6 +720,20 @@ jobs:
                   "PKGBUILD" \
                   "pkgname")"
       - name:
+          Installs latest Crash Bash Library.
+        run: |
+          git \
+            clone \
+              "https://github.com/themartiancompany/crash-bash"
+          cd \
+            "crash-bash"
+          mkdir \
+            -p \
+            "/usr/lib/libcrash-bash"
+          make \
+            PREFIX="/usr" \
+            install
+      - name:
           Installs latest Reallymakepkg.
         run: |
           /entrypoint.sh \
@@ -1464,6 +1478,20 @@ jobs:
             -R \
             "user:user" \
             "${PWD}"
+      - name:
+          Installs latest Crash Bash Library.
+        run: |
+          git \
+            clone \
+              "https://github.com/themartiancompany/crash-bash"
+          cd \
+            "crash-bash"
+          mkdir \
+            -p \
+            "/usr/lib/libcrash-bash"
+          make \
+            PREFIX="/usr" \
+            install
       - name:
           Installs latest Reallymakepkg.
         run: |
