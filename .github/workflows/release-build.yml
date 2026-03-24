@@ -1498,6 +1498,21 @@ jobs:
             PREFIX="/usr" \
             install-scripts
       - name:
+          Installs latest gl-dl.
+        run: |
+          git \
+            clone \
+              --single-branch \
+              --depth=1 \
+              "https://github.com/themartiancompany/gl-dl" \
+              "${HOME}/gl-dl-src" || \
+          true
+          cd \
+            "${HOME}/gl-dl-src"
+          make \
+            PREFIX="/usr" \
+            install-scripts
+      - name:
           Installs latest Gur.
         run: |
           git \
