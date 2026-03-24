@@ -972,7 +972,7 @@ jobs:
         uses:
           actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN:
+          GH_TOKEN:
             ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url:
@@ -1702,7 +1702,7 @@ jobs:
         uses:
           actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN:
+          GH_TOKEN:
             ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url:
@@ -1957,7 +1957,7 @@ jobs:
       - name:
           Installs recent EVM GNUPG.
         env:
-          GITHUB_TOKEN:
+          GH_TOKEN:
             ${{ secrets.GITHUB_TOKEN }}
         run: |
           bash \
@@ -2184,7 +2184,7 @@ jobs:
         uses:
           actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN:
+          GH_TOKEN:
             ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url:
