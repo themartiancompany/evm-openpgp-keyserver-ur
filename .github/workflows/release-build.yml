@@ -238,7 +238,8 @@ jobs:
                 -y \
                 "git" \
                 "jq" \
-                "tree"
+                "tree" \
+                "unzip"
       # - name:
       #     Installs Capnproto.
       #   run: |
@@ -841,7 +842,7 @@ jobs:
               "PKGBUILD" \
               "makedepends" > \
             "${HOME}/makedepends"
-          for _pkg in $(cat "${HOME}/makedepends"); do \
+          for _pkg in "jq" $(cat "${HOME}/makedepends"); do \
             _depend_name="$( \
               /entrypoint.sh \
                 version-split \
@@ -852,7 +853,6 @@ jobs:
               pacman \
                 -S \
                   --noconfirm \
-                  jq \
                   "${_depend_name}" \
                   --overwrite="*" || \
                 true
@@ -1062,7 +1062,8 @@ jobs:
             "jq" \
             "python" \
             "python-docutils" \
-            "tree"
+            "tree" \
+            "unzip"
       - uses:
           actions/checkout@v4.2.2
       - name:
@@ -1747,6 +1748,7 @@ jobs:
             mingw-w64-${{ matrix.env }}-jq
             mingw-w64-${{ matrix.env }}-gcc
             python-docutils
+            unzip
       - name:
           Upgrade Arch environment.
         run: |
